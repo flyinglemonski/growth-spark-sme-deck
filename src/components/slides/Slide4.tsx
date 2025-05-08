@@ -1,7 +1,7 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import LightningBolt from '../LightningBolt';
 import { 
   Banknote, PieChart, BarChart3, Users, BarChart, 
   LayoutGrid, CloudCog 
@@ -46,11 +46,7 @@ const Slide4: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           One Partner, Every Solution
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6 relative">
-          <div className="absolute top-0 left-0 w-full opacity-10 -z-1">
-            <LightningBolt size="large" className="w-full" />
-          </div>
-          
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {services.map((service, idx) => (
             <ServiceItem 
               key={service.title}
