@@ -1,3 +1,4 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
@@ -10,22 +11,19 @@ interface SlideProps {
 
 const FunnelStep = ({ 
   title, 
-  percentage, 
   delay 
 }: { 
   title: string; 
-  percentage: number;
   delay: string;
 }) => (
   <div className={`fade-in-up ${delay} mb-6`}>
     <div className="flex justify-between items-center mb-1">
       <span className="text-white">{title}</span>
-      <span className="text-growthiq-electric-blue">{percentage}%</span>
     </div>
     <div className="h-2 bg-white bg-opacity-20 rounded-full">
       <div 
         className="h-full bg-growthiq-electric-blue rounded-full"
-        style={{ width: `${percentage}%` }}
+        style={{ width: "100%" }}
       ></div>
     </div>
   </div>
@@ -52,14 +50,14 @@ const Slide8: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             </h3>
             
             <div className="space-y-6 fade-in-up stagger-2">
-              <FunnelStep title="Lead Generation" percentage={100} delay="" />
-              <FunnelStep title="Qualification" percentage={64} delay="" />
-              <FunnelStep title="Opportunity" percentage={42} delay="" />
-              <FunnelStep title="Win" percentage={18} delay="" />
+              <FunnelStep title="Lead Generation" delay="" />
+              <FunnelStep title="Qualification" delay="" />
+              <FunnelStep title="Opportunity" delay="" />
+              <FunnelStep title="Win" delay="" />
             </div>
           </div>
           
-          <div className="grid grid-cols-1 gap-4 fade-in-up stagger-3">
+          <div className="grid grid-cols-1 gap-4 fade-in-up stagger-3 self-start">
             <div className="bg-opacity-10 bg-white p-5 rounded-lg">
               <h4 className="text-growthiq-primary-blue font-medium mb-2">CRM Implementation</h4>
               <p className="text-white text-sm">Custom Hubspot, Salesforce & Zoho setups</p>

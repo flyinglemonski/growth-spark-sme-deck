@@ -28,17 +28,6 @@ const Slide3: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             <p className="text-xl text-white mb-10">
               We plug in like an in-house team, delivering funding, marketing, sales, finance, recruitment & systems — so you can focus on building your business.
             </p>
-            
-            <div className="flex flex-col md:flex-row justify-between gap-6 text-white bg-opacity-10 bg-white p-6 rounded-lg">
-              <div className="text-center border-b md:border-r border-growthiq-electric-blue pb-4 md:pb-0 md:pr-8">
-                <p className="text-sm">Founded</p>
-                <p className="text-2xl font-semibold text-growthiq-electric-blue">2025</p>
-              </div>
-              <div className="text-center">
-                <p className="text-sm">Based in</p>
-                <p className="text-2xl font-semibold text-growthiq-electric-blue">Dubai</p>
-              </div>
-            </div>
           </div>
           
           <div className="md:w-1/3 flex justify-center items-center fade-in-up stagger-4">

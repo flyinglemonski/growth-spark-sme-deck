@@ -1,3 +1,4 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
@@ -25,11 +26,11 @@ const Slide6: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6">
           <div className="fade-in-up stagger-3">
             <div className="flex items-center gap-4 mb-6">
-              <img 
-                src="/lovable-uploads/69287983-dd94-4874-b921-b5595a618c13.png" 
-                alt="Email Marketing Icon" 
-                className="h-12 w-12" 
-              />
+              <div className="bg-growthiq-electric-blue bg-opacity-20 p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-growthiq-electric-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
               <h4 className="text-xl text-growthiq-electric-blue">Email Marketing</h4>
             </div>
             <p className="text-xl text-white mb-6">
@@ -44,11 +45,11 @@ const Slide6: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           
           <div className="fade-in-up stagger-4">
             <div className="flex items-center gap-4 mb-6">
-              <img 
-                src="/lovable-uploads/49948999-7653-4f9f-9f9f-ca93789c99c8.png" 
-                alt="Social Media Marketing Icon" 
-                className="h-12 w-12" 
-              />
+              <div className="bg-growthiq-electric-blue bg-opacity-20 p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-growthiq-electric-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </div>
               <h4 className="text-xl text-growthiq-electric-blue">Social Media Marketing</h4>
             </div>
             <p className="text-xl text-white mb-6">
