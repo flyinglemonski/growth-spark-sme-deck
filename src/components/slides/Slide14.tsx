@@ -2,7 +2,7 @@
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import { BarChart, FileChart, Briefcase, PiggyBank } from 'lucide-react';
+import { BarChart, FileBarChart, Briefcase, PiggyBank } from 'lucide-react';
 
 interface SlideProps {
   active: boolean;
@@ -54,7 +54,7 @@ const Slide14: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             
             <div className="bg-opacity-10 bg-white p-5 rounded-lg">
               <div className="flex items-center gap-3 mb-2">
-                <FileChart className="h-5 w-5 text-growthiq-electric-blue" />
+                <FileBarChart className="h-5 w-5 text-growthiq-electric-blue" />
                 <h4 className="text-growthiq-primary-blue font-medium">Cash Flow Management</h4>
               </div>
               <p className="text-white text-sm">Optimising working capital and liquidity</p>
