@@ -1,8 +1,6 @@
-
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import { Laptop } from 'lucide-react';
 
 interface SlideProps {
   active: boolean;
@@ -10,79 +8,57 @@ interface SlideProps {
   currentIndex: number;
 }
 
-const ServiceItem = ({ title, delay }: { title: string; delay: string }) => (
-  <div className={`fade-in-up ${delay} flex items-center mb-3`}>
-    <div className="h-2 w-2 rounded-full bg-growthiq-electric-blue mr-3"></div>
-    <span className="text-white">{title}</span>
-  </div>
-);
-
 const Slide6: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
-  const services = [
-    "Branding",
-    "Websites",
-    "SEO",
-    "Paid Ads",
-    "Content",
-    "Social Media",
-    "Email"
-  ];
-
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content">
-        <Logo className="self-start mb-8 fade-in-up" size="small" />
+        <Logo className="self-start mb-8 fade-in-up" />
         
         <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-4 fade-in-up stagger-1">
-          Marketing & Branding
+          Marketing Automation
         </h2>
         
-        <p className="text-xl text-white mb-8 fade-in-up stagger-1">
-          Marketing that drives revenue — not just likes.
-        </p>
+        <h3 className="text-2xl md:text-3xl text-white mb-8 fade-in-up stagger-2">
+          Nurture leads & close deals on autopilot.
+        </h3>
         
-        <div className="flex flex-col md:flex-row gap-10 mt-4">
-          <div className="md:w-1/2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {services.map((service, idx) => (
-                <ServiceItem 
-                  key={service} 
-                  title={service} 
-                  delay={`stagger-${(idx % 4) + 1}`} 
-                />
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6">
+          <div className="fade-in-up stagger-3">
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src="/lovable-uploads/69287983-dd94-4874-b921-b5595a618c13.png" 
+                alt="Email Marketing Icon" 
+                className="h-12 w-12" 
+              />
+              <h4 className="text-xl text-growthiq-electric-blue">Email Marketing</h4>
             </div>
+            <p className="text-xl text-white mb-6">
+              Craft beautiful emails that convert.
+            </p>
+            <ul className="list-disc pl-5 text-white">
+              <li>Personalised campaigns</li>
+              <li>Segmentation & triggers</li>
+              <li>A/B testing</li>
+            </ul>
           </div>
           
-          <div className="md:w-1/2 flex justify-center items-center fade-in-up stagger-4">
-            <div className="relative">
-              <Laptop className="h-40 w-auto text-growthiq-primary-blue" strokeWidth={1.5} />
-              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                <div className="text-xs text-white">
-                  <div className="border-b border-growthiq-electric-blue mb-1 pb-1">
-                    <span className="text-growthiq-electric-blue">↑ 137%</span> Website Traffic
-                  </div>
-                  <div>
-                    <span className="text-growthiq-electric-blue">↑ 46%</span> Conversion Rate
-                  </div>
-                </div>
-              </div>
+          <div className="fade-in-up stagger-4">
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src="/lovable-uploads/49948999-7653-4f9f-9f9f-ca93789c99c8.png" 
+                alt="Social Media Marketing Icon" 
+                className="h-12 w-12" 
+              />
+              <h4 className="text-xl text-growthiq-electric-blue">Social Media Marketing</h4>
             </div>
-          </div>
-        </div>
-        
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="border-t-2 border-growthiq-primary-blue pt-2">
-            <p className="text-growthiq-electric-blue text-lg font-medium">Strategy</p>
-            <p className="text-white text-sm">Data-driven plans that target revenue growth</p>
-          </div>
-          <div className="border-t-2 border-growthiq-primary-blue pt-2">
-            <p className="text-growthiq-electric-blue text-lg font-medium">Execution</p>
-            <p className="text-white text-sm">End-to-end campaign management</p>
-          </div>
-          <div className="border-t-2 border-growthiq-primary-blue pt-2">
-            <p className="text-growthiq-electric-blue text-lg font-medium">Analytics</p>
-            <p className="text-white text-sm">ROI tracking & performance dashboards</p>
+            <p className="text-xl text-white mb-6">
+              Engage your audience on social.
+            </p>
+            <ul className="list-disc pl-5 text-white">
+              <li>Content scheduling</li>
+              <li>Audience insights</li>
+              <li>Ad management</li>
+            </ul>
           </div>
         </div>
       </div>

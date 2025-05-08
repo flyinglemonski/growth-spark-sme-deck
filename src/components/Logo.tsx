@@ -6,7 +6,7 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = '' }) => {
-  // Make the logo consistently larger across all slides
+  // Base dimensions are maintained here, but can be overridden via className
   const dimensions = 'h-16 w-auto';
   
   return (

@@ -1,8 +1,6 @@
-
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import LightningBolt from '../LightningBolt';
 
 interface SlideProps {
   active: boolean;
@@ -14,65 +12,54 @@ const Slide7: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content">
-        <Logo className="self-start mb-8 fade-in-up" size="small" />
+        <Logo className="self-start mb-8 fade-in-up" />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
-          <div className="flex flex-col fade-in-up stagger-1">
-            <h2 className="text-3xl md:text-4xl font-semibold text-growthiq-primary-blue mb-4">
-              Tax & Accounting
-            </h2>
+        <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-4 fade-in-up stagger-1">
+          Recruitment
+        </h2>
+        
+        <p className="text-xl text-white mb-10 fade-in-up stagger-1">
+          Attract & retain top talent.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <h3 className="text-2xl text-growthiq-electric-blue mb-6 fade-in-up stagger-2">
+              Our Approach
+            </h3>
             
-            <p className="text-xl text-white mb-6">
-              Accounting compliance & reporting.
-            </p>
-            
-            <div className="bg-opacity-10 bg-white p-6 rounded-lg flex-1">
-              <div className="mb-6">
-                <h3 className="text-growthiq-electric-blue font-medium mb-2">Bookkeeping</h3>
-                <p className="text-white text-sm">Daily, weekly, or monthly transaction processing</p>
-              </div>
-              
-              <div className="mb-6">
-                <h3 className="text-growthiq-electric-blue font-medium mb-2">VAT Compliance</h3>
-                <p className="text-white text-sm">FTA registration, filing & reporting</p>
-              </div>
-              
-              <div>
-                <h3 className="text-growthiq-electric-blue font-medium mb-2">Financial Statements</h3>
-                <p className="text-white text-sm">Monthly, quarterly & annual reporting</p>
-              </div>
-            </div>
+            <ul className="list-disc pl-5 space-y-4 text-white fade-in-up stagger-2">
+              <li>
+                <span className="font-semibold text-growthiq-electric-blue">Talent Acquisition:</span> We source top candidates through our extensive network and targeted campaigns.
+              </li>
+              <li>
+                <span className="font-semibold text-growthiq-electric-blue">Employer Branding:</span> We help you build a compelling employer brand to attract the best talent.
+              </li>
+              <li>
+                <span className="font-semibold text-growthiq-electric-blue">Retention Strategies:</span> We implement strategies to keep your top performers engaged and committed.
+              </li>
+            </ul>
           </div>
           
-          <div className="relative flex flex-col fade-in-up stagger-2">
-            <LightningBolt 
-              size="small" 
-              className="absolute -left-4 top-1/2 transform -translate-y-1/2 opacity-50"
-            />
+          <div className="grid grid-cols-1 gap-4 fade-in-up stagger-3">
+            <div className="bg-opacity-10 bg-white p-5 rounded-lg">
+              <h4 className="text-growthiq-primary-blue font-medium mb-2">Executive Search</h4>
+              <p className="text-white text-sm">Find your next leaders</p>
+            </div>
             
-            <h2 className="text-3xl md:text-4xl font-semibold text-growthiq-primary-blue mb-4">
-              Fractional CFO
-            </h2>
+            <div className="bg-opacity-10 bg-white p-5 rounded-lg">
+              <h4 className="text-growthiq-primary-blue font-medium mb-2">Team Augmentation</h4>
+              <p className="text-white text-sm">Scale your team with our experts</p>
+            </div>
             
-            <p className="text-xl text-white mb-6">
-              Strategic CFO insight without full-time cost.
-            </p>
+            <div className="bg-opacity-10 bg-white p-5 rounded-lg">
+              <h4 className="text-growthiq-primary-blue font-medium mb-2">HR Consulting</h4>
+              <p className="text-white text-sm">Streamline your HR processes</p>
+            </div>
             
-            <div className="bg-opacity-10 bg-white p-6 rounded-lg flex-1">
-              <div className="mb-6">
-                <h3 className="text-growthiq-electric-blue font-medium mb-2">Cash Flow Management</h3>
-                <p className="text-white text-sm">13-week rolling forecasts & optimization</p>
-              </div>
-              
-              <div className="mb-6">
-                <h3 className="text-growthiq-electric-blue font-medium mb-2">Financial Strategy</h3>
-                <p className="text-white text-sm">Growth roadmaps & investment planning</p>
-              </div>
-              
-              <div>
-                <h3 className="text-growthiq-electric-blue font-medium mb-2">KPI Dashboards</h3>
-                <p className="text-white text-sm">Custom metrics tracking & board reporting</p>
-              </div>
+            <div className="bg-opacity-10 bg-white p-5 rounded-lg">
+              <h4 className="text-growthiq-primary-blue font-medium mb-2">Training & Development</h4>
+              <p className="text-white text-sm">Upskill your workforce</p>
             </div>
           </div>
         </div>
