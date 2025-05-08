@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -98,6 +99,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
   }
   
   .slide-container {
@@ -111,9 +113,11 @@
   }
   
   .mobile-slide-container {
-    aspect-ratio: 9/16;
+    aspect-ratio: auto;
     max-width: 550px;
-    height: auto;
+    height: calc(100vh - 150px);
+    min-height: 550px;
+    overflow: visible;
   }
   
   /* Fixed slide positioning - content stays visible until user progresses */
@@ -174,6 +178,7 @@
     padding: 2rem;
     color: #FFFFFF;
     z-index: 20;
+    overflow-y: auto;
   }
 
   /* Mobile adjustments */
@@ -181,6 +186,9 @@
     .slide-content {
       padding: 1rem;
       font-size: 0.9em;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      max-height: calc(100vh - 150px);
     }
     
     h2 {
@@ -193,6 +201,10 @@
     
     .grid {
       gap: 1rem !important;
+    }
+    
+    .mobile-slide .slide-content-wrapper {
+      min-height: 100%;
     }
   }
   
@@ -256,5 +268,19 @@
 
   .bg-growthiq-electric-blue {
     background-color: #5D8CFF;
+  }
+  
+  /* Ensure all chart and graph components are fully visible */
+  .recharts-responsive-container,
+  .recharts-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px;
+  }
+  
+  /* Ensure all content boxes don't overflow on small screens */
+  .bg-opacity-10.bg-white {
+    height: auto;
+    overflow: visible;
   }
 }

@@ -6,8 +6,8 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className={`min-h-screen bg-growthiq-deep-navy py-4 ${isMobile ? 'px-2' : 'py-8'}`}>
-      <div className="container mx-auto px-2 md:px-4">
+    <div className={`min-h-screen bg-growthiq-deep-navy ${isMobile ? 'py-2 px-1' : 'py-8'}`}>
+      <div className="container mx-auto px-1 md:px-4 h-full">
         <SlideContainer />
       </div>
     </div>

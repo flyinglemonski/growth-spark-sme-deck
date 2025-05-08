@@ -7,8 +7,8 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = '', extraLarge = false }) => {
-  // Increased dimensions for extraLarge prop
-  const dimensions = extraLarge ? 'h-32 w-auto' : 'h-16 w-auto';
+  // Increased dimensions for extraLarge prop and made regular logo larger
+  const dimensions = extraLarge ? 'h-40 w-auto' : 'h-24 w-auto'; // Increased both sizes
   
   return (
     <div className={`${dimensions} ${className}`}>
