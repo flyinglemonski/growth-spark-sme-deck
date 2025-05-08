@@ -93,10 +93,6 @@
   
   * {
     @apply border-border;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
   }
 
   html, body, #root {
@@ -104,16 +100,13 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    touch-action: none; /* Disable all touch actions at the root level */
-    overscroll-behavior: none; /* Prevent bounce effects */
+    touch-action: pan-y;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    position: fixed; /* Prevent any scrolling on mobile */
-    width: 100%;
   }
   
   .slide-container {
@@ -140,8 +133,7 @@
     max-width: 100%;
     height: calc(100vh - 20px); /* Adjusted for top navigation */
     min-height: 500px;
-    overflow: hidden;
-    touch-action: none;
+    overflow: visible;
   }
   
   /* Fixed slide positioning - content stays visible until user progresses */
@@ -153,29 +145,18 @@
     left: 0;
     transition: opacity 0.3s ease;
     color: #FFFFFF;
-    pointer-events: none; /* Disable all pointer events by default */
   }
   
   .slide-active {
     opacity: 1;
     z-index: 10;
+    pointer-events: auto;
   }
   
   .slide-next, .slide-prev {
     opacity: 0;
     z-index: 5;
     pointer-events: none;
-  }
-  
-  /* Make navigation buttons always interactive */
-  .button, button, [role="button"] {
-    pointer-events: auto !important;
-  }
-  
-  /* Ensure navigation container is interactive */
-  .absolute.top-4.right-4 {
-    pointer-events: auto !important;
-    z-index: 9999;
   }
   
   .navy-bg {
@@ -213,8 +194,7 @@
     padding: 2rem;
     color: #FFFFFF;
     z-index: 20;
-    overflow-y: hidden; /* Changed from auto to hidden */
-    pointer-events: none; /* Disable all pointer events */
+    overflow-y: auto;
   }
 
   /* Mobile adjustments */
@@ -223,11 +203,9 @@
       padding: 1rem;
       padding-top: 3rem; /* Extra padding at top for nav */
       font-size: 0.9em;
-      overflow-y: hidden; /* Changed from auto to hidden */
-      -webkit-overflow-scrolling: none; /* Changed from touch to none */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       max-height: calc(100vh - 60px); /* Adjusted for top nav */
-      touch-action: none; /* Disable touch actions */
-      pointer-events: none; /* Block all pointer events except nav */
     }
     
     h2 {

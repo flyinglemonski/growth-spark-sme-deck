@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
 import Slide2 from './slides/Slide2';
@@ -21,6 +20,8 @@ import { ScrollArea } from './ui/scroll-area';
 const SlideContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const isMobile = useIsMobile();
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
   const totalSlides = 13; // Total number of slides
   
   const handlePrev = () => {
@@ -56,26 +57,46 @@ const SlideContainer: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Prevent default touch events for mobile devices
-  useEffect(() => {
-    if (!isMobile) return;
+  // Touch event handlers for swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
 
-    const preventDefaultTouch = (e: TouchEvent) => {
-      e.preventDefault();
-    };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
 
-    document.addEventListener('touchmove', preventDefaultTouch, { passive: false });
-    document.addEventListener('touchstart', preventDefaultTouch, { passive: false });
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
     
-    return () => {
-      document.removeEventListener('touchmove', preventDefaultTouch);
-      document.removeEventListener('touchstart', preventDefaultTouch);
-    };
-  }, [isMobile]);
+    const diff = touchStartX.current - touchEndX.current;
+    const threshold = 50; // minimum distance to be considered a swipe
+    
+    if (diff > threshold) {
+      // Swiped left -> go next
+      handleNext();
+    } else if (diff < -threshold) {
+      // Swiped right -> go prev
+      handlePrev();
+    }
+    
+    // Reset values
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  // For mobile, we'll use ScrollArea but ensure the navigation is visible
+  const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
+  const wrapperProps = isMobile ? { className: "w-full h-full flex-1" } : {};
 
   return (
-    <div className="flex flex-col h-full w-full relative" style={{ touchAction: 'none' }}>
-      {/* Navigation positioned at top right with higher z-index */}
+    <div 
+      className="flex flex-col h-full w-full relative"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Navigation positioned at top right */}
       <div className="absolute top-4 right-4 z-50">
         <SlideNavigation 
           currentSlide={currentSlide}
@@ -86,27 +107,8 @@ const SlideContainer: React.FC = () => {
         />
       </div>
       
-      {isMobile ? (
-        <div className="w-full h-full flex-1" style={{ overflow: 'hidden', touchAction: 'none' }}>
-          <div className="slide-container mobile-slide-container">
-            <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
-            <Slide2 active={currentSlide === 1} index={1} currentIndex={currentSlide} />
-            <Slide3 active={currentSlide === 2} index={2} currentIndex={currentSlide} />
-            <Slide4 active={currentSlide === 3} index={3} currentIndex={currentSlide} />
-            <Slide5 active={currentSlide === 4} index={4} currentIndex={currentSlide} />
-            <Slide6 active={currentSlide === 5} index={5} currentIndex={currentSlide} />
-            {/* Slide7 removed as it's a duplicate */}
-            <Slide8 active={currentSlide === 6} index={6} currentIndex={currentSlide} />
-            <Slide9 active={currentSlide === 7} index={7} currentIndex={currentSlide} />
-            <Slide10 active={currentSlide === 8} index={8} currentIndex={currentSlide} />
-            <Slide14 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
-            <Slide13 active={currentSlide === 10} index={10} currentIndex={currentSlide} />
-            <Slide11 active={currentSlide === 11} index={11} currentIndex={currentSlide} /> {/* Why GrowthIQ moved to second-to-last */}
-            <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
-          </div>
-        </div>
-      ) : (
-        <div className="slide-container fullscreen-slide-container">
+      <SlideWrapper {...wrapperProps}>
+        <div className={`slide-container ${isMobile ? 'mobile-slide-container' : 'fullscreen-slide-container'}`}>
           <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
           <Slide2 active={currentSlide === 1} index={1} currentIndex={currentSlide} />
           <Slide3 active={currentSlide === 2} index={2} currentIndex={currentSlide} />
@@ -122,7 +124,7 @@ const SlideContainer: React.FC = () => {
           <Slide11 active={currentSlide === 11} index={11} currentIndex={currentSlide} /> {/* Why GrowthIQ moved to second-to-last */}
           <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
         </div>
-      )}
+      </SlideWrapper>
     </div>
   );
 };
