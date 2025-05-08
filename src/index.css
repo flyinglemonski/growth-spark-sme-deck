@@ -151,13 +151,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(2, 10, 24, 0.9), rgba(2, 10, 24, 0.7));
+    background: linear-gradient(45deg, rgba(2, 10, 24, 0.95), rgba(2, 10, 24, 0.85));
     z-index: 1;
   }
   
   .slide-content {
     position: relative;
-    z-index: 10;
+    z-index: 35;
     height: 100%;
     width: 100%;
     display: flex;
@@ -190,6 +190,7 @@
   .highlight-box {
     position: relative;
     display: inline-block;
+    z-index: 5;
   }
   
   .highlight-box::after {
@@ -217,15 +218,30 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold;
+    color: #FFFFFF;
   }
 
   /* Explicit color overrides to ensure visibility */
-  h1, h2, h3, h4, h5, h6, p, span, div {
+  .slide-content h1, 
+  .slide-content h2, 
+  .slide-content h3, 
+  .slide-content h4, 
+  .slide-content h5, 
+  .slide-content h6, 
+  .slide-content p, 
+  .slide-content span, 
+  .slide-content div {
     color: #FFFFFF;
   }
   
-  h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, 
-  p.text-white, span.text-white, div.text-white {
+  .slide-content h1.text-white, 
+  .slide-content h2.text-white, 
+  .slide-content h3.text-white, 
+  .slide-content h4.text-white, 
+  .slide-content h5.text-white, 
+  .slide-content p.text-white, 
+  .slide-content span.text-white, 
+  .slide-content div.text-white {
     color: #FFFFFF !important;
   }
 
@@ -247,5 +263,11 @@
 
   .bg-growthiq-electric-blue {
     background-color: #5D8CFF;
+  }
+  
+  /* Force visibility for elements inside slide content */
+  .slide-content * {
+    z-index: 35;
+    position: relative;
   }
 }

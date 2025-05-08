@@ -26,7 +26,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       position,
       className
     )}>
-      <div className="relative z-20 w-full h-full">
+      <div className="relative z-30 w-full h-full">
         {children}
       </div>
     </div>
