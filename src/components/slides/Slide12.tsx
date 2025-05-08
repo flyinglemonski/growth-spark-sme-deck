@@ -50,10 +50,13 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
                 <Globe className="h-4 w-4 mr-2" />
                 <span className="text-sm">www.growthiq.ae</span>
               </a>
-              <div className="flex items-center text-white">
+              <a 
+                href="mailto:team@growthiq.ae" 
+                className="flex items-center text-white hover:text-growthiq-electric-blue transition-colors"
+              >
                 <Mail className="h-4 w-4 mr-2" />
                 <span className="text-sm">team@growthiq.ae</span>
-              </div>
+              </a>
               <div className="flex items-center text-white">
                 <Phone className="h-4 w-4 mr-2" />
                 <span className="text-sm">+971 58 901 4443</span>
