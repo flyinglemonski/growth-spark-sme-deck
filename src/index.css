@@ -111,27 +111,23 @@
     position: relative;
   }
   
+  /* Revised slide positioning */
   .slide {
     width: 100%;
     height: 100%;
     position: absolute;
-    transition: transform 0.5s ease-in-out, opacity 0.4s ease-in-out;
+    top: 0;
+    left: 0;
+    transition: opacity 0.6s ease;
+    color: #FFFFFF;
   }
   
   .slide-active {
-    transform: translateX(0);
     opacity: 1;
     z-index: 10;
   }
   
-  .slide-next {
-    transform: translateX(100%);
-    opacity: 0;
-    z-index: 5;
-  }
-  
-  .slide-prev {
-    transform: translateX(-100%);
+  .slide-next, .slide-prev {
     opacity: 0;
     z-index: 5;
   }
@@ -155,9 +151,16 @@
     z-index: 1;
   }
   
+  /* New wrapper to ensure content is above background */
+  .slide-content-wrapper {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+  }
+  
   .slide-content {
     position: relative;
-    z-index: 35;
     height: 100%;
     width: 100%;
     display: flex;
@@ -221,30 +224,11 @@
     color: #FFFFFF;
   }
 
-  /* Explicit color overrides to ensure visibility */
-  .slide-content h1, 
-  .slide-content h2, 
-  .slide-content h3, 
-  .slide-content h4, 
-  .slide-content h5, 
-  .slide-content h6, 
-  .slide-content p, 
-  .slide-content span, 
-  .slide-content div {
+  /* Text color overrides - keeping simple and direct */
+  h1, h2, h3, h4, h5, h6, p, span, div {
     color: #FFFFFF;
   }
   
-  .slide-content h1.text-white, 
-  .slide-content h2.text-white, 
-  .slide-content h3.text-white, 
-  .slide-content h4.text-white, 
-  .slide-content h5.text-white, 
-  .slide-content p.text-white, 
-  .slide-content span.text-white, 
-  .slide-content div.text-white {
-    color: #FFFFFF !important;
-  }
-
   .text-growthiq-primary-blue {
     color: #3366FF !important;
   }
@@ -263,11 +247,5 @@
 
   .bg-growthiq-electric-blue {
     background-color: #5D8CFF;
-  }
-  
-  /* Force visibility for elements inside slide content */
-  .slide-content * {
-    z-index: 35;
-    position: relative;
   }
 }
