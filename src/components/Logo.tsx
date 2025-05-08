@@ -12,7 +12,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'large' }) => {
   return (
     <div className={`${dimensions} ${className}`}>
       <img 
-        src="/lovable-uploads/60f5445e-35e7-4152-b19a-6191dadcf868.png" 
+        src="/lovable-uploads/324b1370-3a82-4045-9047-d029a514ae2c.png" 
         alt="GrowthIQ Logo" 
         className="h-full w-auto"
       />
