@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -162,6 +163,7 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    color: #FFFFFF;
   }
   
   .fade-in-up {
@@ -217,16 +219,22 @@
     @apply font-semibold;
   }
 
-  h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, p.text-white, span.text-white, div.text-white {
+  /* Explicit color overrides to ensure visibility */
+  h1, h2, h3, h4, h5, h6, p, span, div {
     color: #FFFFFF;
+  }
+  
+  h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, 
+  p.text-white, span.text-white, div.text-white {
+    color: #FFFFFF !important;
   }
 
   .text-growthiq-primary-blue {
-    color: #3366FF;
+    color: #3366FF !important;
   }
 
   .text-growthiq-electric-blue {
-    color: #5D8CFF;
+    color: #5D8CFF !important;
   }
 
   .bg-growthiq-primary-blue {
