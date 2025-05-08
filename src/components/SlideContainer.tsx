@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
@@ -20,8 +21,6 @@ import { ScrollArea } from './ui/scroll-area';
 const SlideContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const isMobile = useIsMobile();
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
   const totalSlides = 13; // Total number of slides
   
   const handlePrev = () => {
@@ -57,44 +56,18 @@ const SlideContainer: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Touch event handlers for swipe navigation
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    
-    const diff = touchStartX.current - touchEndX.current;
-    const threshold = 50; // minimum distance to be considered a swipe
-    
-    if (diff > threshold) {
-      // Swiped left -> go next
-      handleNext();
-    } else if (diff < -threshold) {
-      // Swiped right -> go prev
-      handlePrev();
-    }
-    
-    // Reset values
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
   // For mobile, we'll use ScrollArea but ensure the navigation is visible
   const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
-  const wrapperProps = isMobile ? { className: "w-full h-full flex-1" } : {};
+  const wrapperProps = isMobile ? { 
+    className: "w-full h-full flex-1",
+    // Disable normal scrolling behavior for touch devices
+    style: { overflowY: 'hidden', touchAction: 'none' }
+  } : {};
 
   return (
     <div 
       className="flex flex-col h-full w-full relative"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      // Remove all touch event handlers to disable swipe navigation
     >
       {/* Navigation positioned at top right */}
       <div className="absolute top-4 right-4 z-50">

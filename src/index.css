@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -100,7 +101,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    touch-action: pan-y;
+    touch-action: none; /* Disable all touch actions at the root level */
   }
 
   body {
@@ -133,7 +134,8 @@
     max-width: 100%;
     height: calc(100vh - 20px); /* Adjusted for top navigation */
     min-height: 500px;
-    overflow: visible;
+    overflow: hidden; /* Changed from visible to hidden */
+    touch-action: none; /* Disable touch actions */
   }
   
   /* Fixed slide positioning - content stays visible until user progresses */
@@ -194,7 +196,7 @@
     padding: 2rem;
     color: #FFFFFF;
     z-index: 20;
-    overflow-y: auto;
+    overflow-y: hidden; /* Changed from auto to hidden */
   }
 
   /* Mobile adjustments */
@@ -203,9 +205,10 @@
       padding: 1rem;
       padding-top: 3rem; /* Extra padding at top for nav */
       font-size: 0.9em;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow-y: hidden; /* Changed from auto to hidden */
+      -webkit-overflow-scrolling: none; /* Changed from touch to none */
       max-height: calc(100vh - 60px); /* Adjusted for top nav */
+      touch-action: none; /* Disable touch actions */
     }
     
     h2 {
