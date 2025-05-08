@@ -59,9 +59,9 @@ const SlideContainer: React.FC = () => {
   const wrapperProps = isMobile ? { className: "w-full h-full" } : {};
 
   return (
-    <div className="p-4 flex flex-col items-center">
+    <div className="flex flex-col h-full w-full">
       <SlideWrapper {...wrapperProps}>
-        <div className={`slide-container ${isMobile ? 'mobile-slide-container' : ''}`}>
+        <div className={`slide-container ${isMobile ? 'mobile-slide-container' : 'fullscreen-slide-container'}`}>
           <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
           <Slide2 active={currentSlide === 1} index={1} currentIndex={currentSlide} />
           <Slide3 active={currentSlide === 2} index={2} currentIndex={currentSlide} />

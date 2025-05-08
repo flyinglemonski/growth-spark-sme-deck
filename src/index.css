@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -96,6 +95,13 @@
     @apply border-border;
   }
 
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
@@ -111,11 +117,19 @@
     overflow: hidden;
     position: relative;
   }
+
+  .fullscreen-slide-container {
+    aspect-ratio: auto;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
   
   .mobile-slide-container {
     aspect-ratio: auto;
     max-width: 550px;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 120px);
     min-height: 550px;
     overflow: visible;
   }
