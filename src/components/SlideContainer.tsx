@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
@@ -55,7 +56,7 @@ const SlideContainer: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Prevent all default touch events for mobile devices
+  // Prevent default touch events for mobile devices
   useEffect(() => {
     if (!isMobile) return;
 
@@ -72,25 +73,10 @@ const SlideContainer: React.FC = () => {
     };
   }, [isMobile]);
 
-  // For mobile, modified ScrollArea usage
-  const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
-  const wrapperProps = isMobile ? { 
-    className: "w-full h-full flex-1",
-    // Disable scrolling but keep pointer events on buttons functional
-    style: { 
-      overflowY: 'hidden', 
-      overflowX: 'hidden',
-      touchAction: 'none'
-    }
-  } : {};
-
   return (
-    <div 
-      className="flex flex-col h-full w-full relative"
-      style={isMobile ? { touchAction: 'none' } : {}}
-    >
-      {/* Navigation positioned at top right with higher z-index to ensure it remains interactive */}
-      <div className="absolute top-4 right-4 z-50" style={{ pointerEvents: 'auto' }}>
+    <div className="flex flex-col h-full w-full relative" style={{ touchAction: 'none' }}>
+      {/* Navigation positioned at top right with higher z-index */}
+      <div className="absolute top-4 right-4 z-50">
         <SlideNavigation 
           currentSlide={currentSlide}
           totalSlides={totalSlides}
@@ -100,8 +86,27 @@ const SlideContainer: React.FC = () => {
         />
       </div>
       
-      <SlideWrapper {...wrapperProps}>
-        <div className={`slide-container ${isMobile ? 'mobile-slide-container' : 'fullscreen-slide-container'}`}>
+      {isMobile ? (
+        <div className="w-full h-full flex-1" style={{ overflow: 'hidden', touchAction: 'none' }}>
+          <div className="slide-container mobile-slide-container">
+            <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
+            <Slide2 active={currentSlide === 1} index={1} currentIndex={currentSlide} />
+            <Slide3 active={currentSlide === 2} index={2} currentIndex={currentSlide} />
+            <Slide4 active={currentSlide === 3} index={3} currentIndex={currentSlide} />
+            <Slide5 active={currentSlide === 4} index={4} currentIndex={currentSlide} />
+            <Slide6 active={currentSlide === 5} index={5} currentIndex={currentSlide} />
+            {/* Slide7 removed as it's a duplicate */}
+            <Slide8 active={currentSlide === 6} index={6} currentIndex={currentSlide} />
+            <Slide9 active={currentSlide === 7} index={7} currentIndex={currentSlide} />
+            <Slide10 active={currentSlide === 8} index={8} currentIndex={currentSlide} />
+            <Slide14 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
+            <Slide13 active={currentSlide === 10} index={10} currentIndex={currentSlide} />
+            <Slide11 active={currentSlide === 11} index={11} currentIndex={currentSlide} /> {/* Why GrowthIQ moved to second-to-last */}
+            <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
+          </div>
+        </div>
+      ) : (
+        <div className="slide-container fullscreen-slide-container">
           <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
           <Slide2 active={currentSlide === 1} index={1} currentIndex={currentSlide} />
           <Slide3 active={currentSlide === 2} index={2} currentIndex={currentSlide} />
@@ -117,7 +122,7 @@ const SlideContainer: React.FC = () => {
           <Slide11 active={currentSlide === 11} index={11} currentIndex={currentSlide} /> {/* Why GrowthIQ moved to second-to-last */}
           <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
         </div>
-      </SlideWrapper>
+      )}
     </div>
   );
 };

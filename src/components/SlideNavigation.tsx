@@ -22,13 +22,13 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
   const isMobile = useIsMobile();
   
   return (
-    <div className="flex items-center gap-2 bg-black bg-opacity-40 backdrop-blur-sm rounded-full p-1">
+    <div className="flex items-center gap-2 bg-black bg-opacity-40 backdrop-blur-sm rounded-full p-1 z-50">
       <Button 
         variant="outline" 
         size="icon"
         onClick={onPrev}
         disabled={currentSlide === 0}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100 h-8 w-8"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100 h-8 w-8 pointer-events-auto"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
@@ -50,7 +50,7 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
         size="icon"
         onClick={onNext}
         disabled={currentSlide === totalSlides - 1}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100 h-8 w-8"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100 h-8 w-8 pointer-events-auto"
       >
         <ChevronRight className="h-4 w-4" />
       </Button>
