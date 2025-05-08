@@ -17,7 +17,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   index, 
   currentIndex 
 }) => {
-  // Simplify position determination
+  // Determine slide position
   const position = active ? 'slide-active' : 
                   index > currentIndex ? 'slide-next' : 'slide-prev';
 

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -111,7 +110,7 @@
     position: relative;
   }
   
-  /* Revised slide positioning with improved animation */
+  /* Slide positioning without animations */
   .slide {
     width: 100%;
     height: 100%;
@@ -120,13 +119,13 @@
     left: 0;
     transition: opacity 0.4s ease-out;
     color: #FFFFFF;
-    pointer-events: none; /* Default to no pointer events */
+    pointer-events: none;
   }
   
   .slide-active {
     opacity: 1;
     z-index: 10;
-    pointer-events: auto; /* Enable pointer events for active slide */
+    pointer-events: auto;
   }
   
   .slide-next, .slide-prev {
@@ -153,7 +152,7 @@
     z-index: 1;
   }
   
-  /* Ensure content is above background with improved z-indexing */
+  /* Content positioning with improved z-indexing */
   .slide-content-wrapper {
     position: relative;
     z-index: 20;
@@ -171,32 +170,14 @@
     color: #FFFFFF;
   }
   
-  /* Modified animation to ensure content doesn't disappear */
+  /* Removed animation classes and replaced with static display */
   .fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fade-up 400ms ease-out forwards;
-    animation-play-state: paused;
+    opacity: 1;
+    transform: none;
   }
   
-  .slide-active .fade-in-up {
-    animation-play-state: running;
-  }
-  
-  .stagger-1 {
-    animation-delay: 40ms;
-  }
-  
-  .stagger-2 {
-    animation-delay: 80ms;
-  }
-  
-  .stagger-3 {
-    animation-delay: 120ms;
-  }
-  
-  .stagger-4 {
-    animation-delay: 160ms;
+  .stagger-1, .stagger-2, .stagger-3, .stagger-4 {
+    /* No delays or animations */
   }
 
   .highlight-box {
@@ -215,18 +196,6 @@
     background-color: #5D8CFF;
     z-index: -1;
     opacity: 0.35;
-  }
-
-  /* Revised animation to prevent disappearing */
-  @keyframes fade-up {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   h1, h2, h3, h4, h5, h6 {
