@@ -1,3 +1,4 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
@@ -34,7 +35,7 @@ const Slide10: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2">•</span>
-                  <span>Unused licenses and seats</span>
+                  <span>Unused licences and seats</span>
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2">•</span>
@@ -56,7 +57,7 @@ const Slide10: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2">•</span>
-                  <span>License utilization analysis</span>
+                  <span>Licence utilisation analysis</span>
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2">•</span>
@@ -70,13 +71,13 @@ const Slide10: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             </div>
           </div>
           
-          <div className="md:w-1/2 flex flex-col justify-center items-center fade-in-up stagger-3">
+          <div className="md:w-1/2 flex flex-col justify-center items-center fade-in-up stagger-3 mt-[-30px]">
             <BarChart className="h-12 w-12 text-growthiq-primary-blue mb-6" strokeWidth={2} />
             
             <div className="w-full max-w-md">
               <div className="mb-6">
                 <div className="flex justify-between mb-1">
-                  <span className="text-white">Before Optimization</span>
+                  <span className="text-white">Before Optimisation</span>
                   <span className="text-white">$12,500/mo</span>
                 </div>
                 <div className="h-8 bg-white bg-opacity-20 rounded">
@@ -89,7 +90,7 @@ const Slide10: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
               
               <div>
                 <div className="flex justify-between mb-1">
-                  <span className="text-white">After Optimization</span>
+                  <span className="text-white">After Optimisation</span>
                   <span className="text-white">$9,375/mo</span>
                 </div>
                 <div className="h-8 bg-white bg-opacity-20 rounded">
@@ -104,8 +105,8 @@ const Slide10: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
                 <p className="text-growthiq-electric-blue text-xl font-semibold">
                   25% Average Cost Reduction
                 </p>
-                <p className="text-white text-sm">
-                  While maintaining or improving performance
+                <p className="text-white text-sm italic">
+                  Example: While maintaining or improving performance
                 </p>
               </div>
             </div>

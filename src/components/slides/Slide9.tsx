@@ -1,7 +1,8 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import Rocket from '../Rocket';
+import Handshake from '../Handshake';
 
 interface SlideProps {
   active: boolean;
@@ -54,7 +55,7 @@ const Slide9: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           
           <div className="md:w-1/2 flex justify-center items-center fade-in-up stagger-3">
             <div className="rounded-full overflow-hidden bg-growthiq-deep-navy p-2 border-2 border-growthiq-primary-blue">
-              <Rocket size="medium" />
+              <Handshake size="medium" />
             </div>
           </div>
         </div>

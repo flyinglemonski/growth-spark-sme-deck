@@ -1,7 +1,7 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import { Button } from '@/components/ui/button';
 import { Mail, Phone } from 'lucide-react';
 
 interface SlideProps {
@@ -17,24 +17,17 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
         <Logo className="self-start mb-8 fade-in-up" />
         
         <div className="flex-1 flex flex-col items-center justify-center">
-          <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-10 text-center fade-in-up stagger-1">
+          <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-14 text-center fade-in-up stagger-1">
             Ready to scale smarter?
           </h2>
           
-          <Button 
-            className="bg-growthiq-primary-blue text-white px-8 py-6 text-xl hover:bg-growthiq-electric-blue transition-colors mb-14 fade-in-up stagger-2"
-          >
-            Book Your Free Discovery Call
-          </Button>
-          
           <div className="flex flex-col items-center mb-10 fade-in-up stagger-3">
             <div className="bg-white p-6 rounded-lg mb-4">
-              <div className="h-32 w-32 bg-growthiq-deep-navy flex items-center justify-center rounded">
-                <p className="text-white text-xs text-center">
-                  QR code to<br />
-                  growthiq.ae
-                </p>
-              </div>
+              <img 
+                src="/lovable-uploads/1703e44e-de26-41d4-80d2-a82fc0ed9a39.png" 
+                alt="GrowthIQ QR Code" 
+                className="h-32 w-32"
+              />
             </div>
             <p className="text-white text-sm">Scan to visit our website</p>
           </div>

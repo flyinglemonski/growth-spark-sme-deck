@@ -1,7 +1,7 @@
+
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import LightningBolt from '../LightningBolt';
 import { Target, Layers, Timer, DollarSign } from 'lucide-react';
 
 interface SlideProps {
@@ -66,32 +66,16 @@ const Slide11: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           Why GrowthIQ?
         </h2>
         
-        <div className="flex flex-col lg:flex-row items-center gap-10">
-          <div className="lg:w-1/3 flex justify-center items-center fade-in-up">
-            <div className="relative">
-              <div className="w-56 h-56 rounded-full border-2 border-growthiq-electric-blue flex items-center justify-center">
-                <LightningBolt size="medium" className="opacity-70" />
-              </div>
-              
-              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                <div className="animate-pulse text-growthiq-electric-blue text-xl font-semibold">
-                  GROWTH
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {pillars.map((pillar) => (
-              <Pillar 
-                key={pillar.title}
-                icon={pillar.icon}
-                title={pillar.title}
-                description={pillar.description}
-                delay={pillar.delay}
-              />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          {pillars.map((pillar) => (
+            <Pillar 
+              key={pillar.title}
+              icon={pillar.icon}
+              title={pillar.title}
+              description={pillar.description}
+              delay={pillar.delay}
+            />
+          ))}
         </div>
       </div>
     </SlideLayout>
