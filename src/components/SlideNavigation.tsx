@@ -31,7 +31,7 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
         className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100"
       >
         <ChevronLeft className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
-        {isMobile && <span className="ml-1">Prev</span>}
+        {isMobile && <span className="ml-1 text-growthiq-primary-blue">Prev</span>}
       </Button>
       
       {!isMobile && (
@@ -66,7 +66,7 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
         disabled={currentSlide === totalSlides - 1}
         className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100"
       >
-        {isMobile && <span className="mr-1">Next</span>}
+        {isMobile && <span className="mr-1 text-growthiq-primary-blue">Next</span>}
         <ChevronRight className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
       </Button>
     </div>
