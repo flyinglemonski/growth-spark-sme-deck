@@ -7,7 +7,7 @@ import Slide3 from './slides/Slide3';
 import Slide4 from './slides/Slide4';
 import Slide5 from './slides/Slide5';
 import Slide6 from './slides/Slide6';
-import Slide7 from './slides/Slide7';
+// Slide7 removed as it's a duplicate
 import Slide8 from './slides/Slide8';
 import Slide9 from './slides/Slide9';
 import Slide10 from './slides/Slide10';
@@ -26,7 +26,7 @@ const SlideContainer: React.FC = () => {
   };
   
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev < 13 ? prev + 1 : prev));
+    setCurrentSlide((prev) => (prev < 12 ? prev + 1 : prev)); // Reduced by 1 since we removed a slide
   };
   
   const handleJumpTo = (index: number) => {
@@ -56,19 +56,19 @@ const SlideContainer: React.FC = () => {
         <Slide4 active={currentSlide === 3} index={3} currentIndex={currentSlide} />
         <Slide5 active={currentSlide === 4} index={4} currentIndex={currentSlide} />
         <Slide6 active={currentSlide === 5} index={5} currentIndex={currentSlide} />
-        <Slide7 active={currentSlide === 6} index={6} currentIndex={currentSlide} />
-        <Slide8 active={currentSlide === 7} index={7} currentIndex={currentSlide} />
-        <Slide9 active={currentSlide === 8} index={8} currentIndex={currentSlide} />
-        <Slide10 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
-        <Slide11 active={currentSlide === 10} index={10} currentIndex={currentSlide} />
-        <Slide13 active={currentSlide === 11} index={11} currentIndex={currentSlide} />
-        <Slide14 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
-        <Slide12 active={currentSlide === 13} index={13} currentIndex={currentSlide} />
+        {/* Slide7 removed as it's a duplicate */}
+        <Slide8 active={currentSlide === 6} index={6} currentIndex={currentSlide} />
+        <Slide9 active={currentSlide === 7} index={7} currentIndex={currentSlide} />
+        <Slide10 active={currentSlide === 8} index={8} currentIndex={currentSlide} />
+        <Slide11 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
+        <Slide13 active={currentSlide === 10} index={10} currentIndex={currentSlide} />
+        <Slide14 active={currentSlide === 11} index={11} currentIndex={currentSlide} />
+        <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
       </div>
       
       <SlideNavigation 
         currentSlide={currentSlide}
-        totalSlides={14}
+        totalSlides={13} // Reduced by 1 since we removed a slide
         onPrev={handlePrev}
         onNext={handleNext}
         onJumpTo={handleJumpTo}
