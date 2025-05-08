@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +100,109 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .slide-container {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  }
+  
+  .slide-active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 10;
+  }
+  
+  .slide-next {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 5;
+  }
+  
+  .slide-prev {
+    transform: translateX(-100%);
+    opacity: 0;
+    z-index: 5;
+  }
+  
+  .navy-bg {
+    background-color: #020A18;
+    background-image: url('/lovable-uploads/3cf23019-7c7b-4e1c-b85c-8230f2a59e6a.png');
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-opacity: 0.15;
+    position: relative;
+  }
+  
+  .navy-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(2, 10, 24, 0.9), rgba(2, 10, 24, 0.6));
+    z-index: 1;
+  }
+  
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    animation: fade-up 400ms ease-out forwards;
+  }
+  
+  .stagger-1 {
+    animation-delay: 40ms;
+  }
+  
+  .stagger-2 {
+    animation-delay: 80ms;
+  }
+  
+  .stagger-3 {
+    animation-delay: 120ms;
+  }
+  
+  .stagger-4 {
+    animation-delay: 160ms;
+  }
+
+  .highlight-box {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .highlight-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: #5D8CFF;
+    z-index: -1;
+    opacity: 0.35;
   }
 }
