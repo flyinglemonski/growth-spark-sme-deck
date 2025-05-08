@@ -28,7 +28,6 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         position,
         className
       )}
-      // Only render active slide and adjacent slides, but ensure content stays visible
       style={{ 
         display: Math.abs(index - currentIndex) <= 1 ? 'block' : 'none',
         opacity: active ? 1 : 0,
@@ -36,6 +35,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       }}
     >
       <div className="slide-content-wrapper navy-bg">
+        <div className="slide-content-overlay"></div>
         {children}
       </div>
     </div>
