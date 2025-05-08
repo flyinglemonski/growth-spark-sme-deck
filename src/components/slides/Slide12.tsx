@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
@@ -15,7 +14,7 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content flex flex-col">
-        <Logo className="self-start mb-8 fade-in-up" size="small" />
+        <Logo className="self-start mb-8 fade-in-up" />
         
         <div className="flex-1 flex flex-col items-center justify-center">
           <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-10 text-center fade-in-up stagger-1">
@@ -42,7 +41,7 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
         </div>
         
         <div className="flex justify-between items-center border-t border-growthiq-electric-blue pt-4 fade-in-up stagger-4">
-          <Logo size="small" />
+          <Logo />
           
           <div className="flex flex-col sm:flex-row items-end sm:items-center gap-4">
             <div className="flex items-center text-white">

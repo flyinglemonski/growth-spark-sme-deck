@@ -3,11 +3,11 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
-  size?: 'small' | 'large';
 }
 
-const Logo: React.FC<LogoProps> = ({ className = '', size = 'large' }) => {
-  const dimensions = size === 'small' ? 'h-6 w-auto' : 'h-12 w-auto';
+const Logo: React.FC<LogoProps> = ({ className = '' }) => {
+  // Make the logo consistently larger across all slides
+  const dimensions = 'h-16 w-auto';
   
   return (
     <div className={`${dimensions} ${className}`}>

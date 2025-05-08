@@ -14,7 +14,7 @@ const Slide3: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content">
-        <Logo className="self-start mb-8 fade-in-up" size="small" />
+        <Logo className="self-start mb-8 fade-in-up" />
         
         <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-4 fade-in-up stagger-1">
           Meet GrowthIQ
