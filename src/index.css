@@ -101,6 +101,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    touch-action: pan-y;
   }
 
   body {
@@ -117,6 +118,7 @@
     margin: 0 auto;
     overflow: hidden;
     position: relative;
+    padding-bottom: 70px; /* Space for navigation */
   }
 
   .fullscreen-slide-container {
@@ -129,8 +131,8 @@
   
   .mobile-slide-container {
     aspect-ratio: auto;
-    max-width: 550px;
-    height: calc(100vh - 160px); /* Reduced height to make room for navigation */
+    max-width: 100%;
+    height: calc(100vh - 80px); /* Reduced height to make room for navigation */
     min-height: 500px;
     overflow: visible;
   }
@@ -203,7 +205,7 @@
       font-size: 0.9em;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      max-height: calc(100vh - 180px); /* Adjusted to account for navigation */
+      max-height: calc(100vh - 100px); /* Adjusted to account for navigation */
     }
     
     h2 {

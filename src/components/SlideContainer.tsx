@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
 import Slide2 from './slides/Slide2';
@@ -21,13 +21,16 @@ import { ScrollArea } from './ui/scroll-area';
 const SlideContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const isMobile = useIsMobile();
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const totalSlides = 13; // Total number of slides
   
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev > 0 ? prev - 1 : prev));
   };
   
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev < 12 ? prev + 1 : prev)); // Reduced by 1 since we removed a slide
+    setCurrentSlide((prev) => (prev < totalSlides - 1 ? prev + 1 : prev));
   };
   
   const handleJumpTo = (index: number) => {
@@ -55,12 +58,45 @@ const SlideContainer: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Touch event handlers for swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const diff = touchStartX.current - touchEndX.current;
+    const threshold = 50; // minimum distance to be considered a swipe
+    
+    if (diff > threshold) {
+      // Swiped left -> go next
+      handleNext();
+    } else if (diff < -threshold) {
+      // Swiped right -> go prev
+      handlePrev();
+    }
+    
+    // Reset values
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   // For mobile, we'll use ScrollArea but ensure the navigation is visible
   const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
   const wrapperProps = isMobile ? { className: "w-full h-full flex-1" } : {};
 
   return (
-    <div className="flex flex-col h-full w-full">
+    <div 
+      className="flex flex-col h-full w-full"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <SlideWrapper {...wrapperProps}>
         <div className={`slide-container ${isMobile ? 'mobile-slide-container' : 'fullscreen-slide-container'}`}>
           <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
@@ -80,10 +116,10 @@ const SlideContainer: React.FC = () => {
         </div>
       </SlideWrapper>
       
-      <div className="w-full pb-4 px-2 mt-auto">
+      <div className="w-full pb-4 px-2 mt-auto fixed bottom-0 left-0 right-0 z-50">
         <SlideNavigation 
           currentSlide={currentSlide}
-          totalSlides={13} // Reduced by 1 since we removed a slide
+          totalSlides={totalSlides}
           onPrev={handlePrev}
           onNext={handleNext}
           onJumpTo={handleJumpTo}

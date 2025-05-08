@@ -22,13 +22,13 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
   const isMobile = useIsMobile();
   
   return (
-    <div className="flex items-center justify-between w-full max-w-xl mx-auto">
+    <div className="flex items-center justify-between w-full max-w-xl mx-auto bg-black bg-opacity-40 backdrop-blur-sm rounded-full p-2">
       <Button 
         variant="outline" 
         size={isMobile ? "default" : "icon"}
         onClick={onPrev}
         disabled={currentSlide === 0}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-opacity-80 backdrop-blur-sm"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100"
       >
         <ChevronLeft className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
         {isMobile && <span className="ml-1">Prev</span>}
@@ -52,9 +52,9 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
         </div>
       )}
       
-      {/* On mobile, show current slide number instead of dots */}
+      {/* On mobile, show current slide number with improved visibility */}
       {isMobile && (
-        <div className="text-center text-white font-semibold bg-black bg-opacity-40 px-3 py-1 rounded-full">
+        <div className="text-center text-white font-semibold px-4 py-1 rounded-full">
           {currentSlide + 1} / {totalSlides}
         </div>
       )}
@@ -64,7 +64,7 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
         size={isMobile ? "default" : "icon"}
         onClick={onNext}
         disabled={currentSlide === totalSlides - 1}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-opacity-80 backdrop-blur-sm"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100"
       >
         {isMobile && <span className="mr-1">Next</span>}
         <ChevronRight className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
