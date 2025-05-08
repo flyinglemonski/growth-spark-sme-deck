@@ -72,9 +72,9 @@ const SlideContainer: React.FC = () => {
           <Slide8 active={currentSlide === 6} index={6} currentIndex={currentSlide} />
           <Slide9 active={currentSlide === 7} index={7} currentIndex={currentSlide} />
           <Slide10 active={currentSlide === 8} index={8} currentIndex={currentSlide} />
-          <Slide11 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
+          <Slide14 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
           <Slide13 active={currentSlide === 10} index={10} currentIndex={currentSlide} />
-          <Slide14 active={currentSlide === 11} index={11} currentIndex={currentSlide} />
+          <Slide11 active={currentSlide === 11} index={11} currentIndex={currentSlide} /> {/* Why GrowthIQ moved to second-to-last */}
           <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
         </div>
       </SlideWrapper>

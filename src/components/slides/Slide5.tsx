@@ -30,23 +30,23 @@ const Slide5: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content">
-        <Logo className="self-start mb-8 fade-in-up" extraLarge={true} />
+        <Logo className="self-start mb-6 fade-in-up" />
         
-        <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-4 fade-in-up stagger-1">
+        <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-3 fade-in-up stagger-1">
           SME Financing
         </h2>
         
-        <p className="text-xl text-white mb-10 fade-in-up stagger-1">
+        <p className="text-xl text-white mb-6 fade-in-up stagger-1">
           Fast, flexible capital — approved in days.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-2xl text-growthiq-electric-blue mb-6 fade-in-up stagger-2">
+            <h3 className="text-2xl text-growthiq-electric-blue mb-4 fade-in-up stagger-2">
               Financing Solutions
             </h3>
             
-            <ul className="list-disc pl-5 space-y-4 text-white fade-in-up stagger-2">
+            <ul className="list-disc pl-5 space-y-3 text-white fade-in-up stagger-2">
               <li>
                 <span className="font-semibold text-growthiq-electric-blue">Quick Access:</span> Receive funds in as little as 48 hours after approval.
               </li>
@@ -59,7 +59,7 @@ const Slide5: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             </ul>
           </div>
           
-          <div className="grid grid-cols-1 gap-4 fade-in-up stagger-3">
+          <div className="grid grid-cols-1 gap-3 fade-in-up stagger-3">
             <ServiceItem 
               icon={Banknote} 
               title="Invoice Financing" 
