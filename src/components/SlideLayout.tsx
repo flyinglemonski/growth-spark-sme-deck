@@ -17,8 +17,8 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   index, 
   currentIndex 
 }) => {
-  // Change the positioning logic to use opacity and visibility instead of transform
-  const position = index === currentIndex ? 'slide-active' : 
+  // Simplify position determination
+  const position = active ? 'slide-active' : 
                   index > currentIndex ? 'slide-next' : 'slide-prev';
 
   return (
@@ -28,8 +28,10 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         position,
         className
       )}
+      // Only render slides that are currently active or immediate neighbors
       style={{ 
-        display: Math.abs(index - currentIndex) <= 1 ? 'block' : 'none' 
+        display: Math.abs(index - currentIndex) <= 1 ? 'block' : 'none',
+        opacity: active ? 1 : 0
       }}
     >
       <div className="slide-content-wrapper">

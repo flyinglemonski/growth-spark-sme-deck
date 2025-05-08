@@ -111,20 +111,22 @@
     position: relative;
   }
   
-  /* Revised slide positioning */
+  /* Revised slide positioning with improved animation */
   .slide {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.4s ease-out;
     color: #FFFFFF;
+    pointer-events: none; /* Default to no pointer events */
   }
   
   .slide-active {
     opacity: 1;
     z-index: 10;
+    pointer-events: auto; /* Enable pointer events for active slide */
   }
   
   .slide-next, .slide-prev {
@@ -151,7 +153,7 @@
     z-index: 1;
   }
   
-  /* New wrapper to ensure content is above background */
+  /* Ensure content is above background with improved z-indexing */
   .slide-content-wrapper {
     position: relative;
     z-index: 20;
@@ -169,9 +171,16 @@
     color: #FFFFFF;
   }
   
+  /* Modified animation to ensure content doesn't disappear */
   .fade-in-up {
     opacity: 0;
+    transform: translateY(20px);
     animation: fade-up 400ms ease-out forwards;
+    animation-play-state: paused;
+  }
+  
+  .slide-active .fade-in-up {
+    animation-play-state: running;
   }
   
   .stagger-1 {
@@ -208,6 +217,7 @@
     opacity: 0.35;
   }
 
+  /* Revised animation to prevent disappearing */
   @keyframes fade-up {
     0% {
       opacity: 0;
@@ -224,7 +234,7 @@
     color: #FFFFFF;
   }
 
-  /* Text color overrides - keeping simple and direct */
+  /* Text color overrides - ensuring consistent visibility */
   h1, h2, h3, h4, h5, h6, p, span, div {
     color: #FFFFFF;
   }
