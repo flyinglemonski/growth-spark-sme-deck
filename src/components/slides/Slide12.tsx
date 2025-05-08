@@ -2,7 +2,7 @@
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Globe } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideProps {
@@ -36,17 +36,28 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           </div>
         </div>
         
-        <div className={`${isMobile ? 'flex flex-col gap-3' : 'flex justify-between items-center'} border-t border-growthiq-electric-blue pt-4 fade-in-up stagger-4`}>
-          <Logo className={isMobile ? 'mb-3' : ''} />
-          
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex items-center text-white">
-              <Mail className="h-4 w-4 mr-2" />
-              <span className="text-sm">team@growthiq.ae</span>
-            </div>
-            <div className="flex items-center text-white">
-              <Phone className="h-4 w-4 mr-2" />
-              <span className="text-sm">+971 58 901 4443</span>
+        <div className="border-t border-growthiq-electric-blue pt-4 fade-in-up stagger-4">
+          <div className={`${isMobile ? 'flex flex-col space-y-4' : 'flex justify-between items-center'}`}>
+            <Logo className={`${isMobile ? 'mx-auto mb-4' : ''}`} />
+            
+            <div className={`flex flex-col ${isMobile ? 'space-y-3 items-center' : 'space-y-2 items-end'}`}>
+              <a 
+                href="https://www.growthiq.ae" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center text-white hover:text-growthiq-electric-blue transition-colors"
+              >
+                <Globe className="h-4 w-4 mr-2" />
+                <span className="text-sm">www.growthiq.ae</span>
+              </a>
+              <div className="flex items-center text-white">
+                <Mail className="h-4 w-4 mr-2" />
+                <span className="text-sm">team@growthiq.ae</span>
+              </div>
+              <div className="flex items-center text-white">
+                <Phone className="h-4 w-4 mr-2" />
+                <span className="text-sm">+971 58 901 4443</span>
+              </div>
             </div>
           </div>
         </div>
