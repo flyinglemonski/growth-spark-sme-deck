@@ -17,7 +17,7 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content flex flex-col">
-        <Logo className="self-start mb-8 fade-in-up" />
+        {/* Logo removed from here as requested */}
         
         <div className="flex-1 flex flex-col items-center justify-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-6 sm:mb-14 text-center fade-in-up stagger-1">
@@ -29,7 +29,7 @@ const Slide12: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
               <img 
                 src="/lovable-uploads/1703e44e-de26-41d4-80d2-a82fc0ed9a39.png" 
                 alt="GrowthIQ QR Code" 
-                className={`${isMobile ? 'h-24 w-24' : 'h-32 w-32'}`}
+                className={`${isMobile ? 'h-32 w-32' : 'h-40 w-40'}`}
               />
             </div>
             <p className="text-white text-sm">Scan to visit our website</p>

@@ -3,6 +3,7 @@ import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
 import { Banknote, Receipt, LineChart, CreditCard } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideProps {
   active: boolean;
@@ -27,6 +28,8 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ icon: Icon, title, descriptio
 );
 
 const Slide5: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
+  const isMobile = useIsMobile();
+
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content">
@@ -40,8 +43,8 @@ const Slide5: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           Fast, flexible capital — approved in days.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className={`${isMobile ? 'order-2' : ''}`}>
             <h3 className="text-2xl text-growthiq-electric-blue mb-4 fade-in-up stagger-2">
               Financing Solutions
             </h3>
@@ -59,7 +62,7 @@ const Slide5: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             </ul>
           </div>
           
-          <div className="grid grid-cols-1 gap-3 fade-in-up stagger-3">
+          <div className={`grid grid-cols-1 gap-3 fade-in-up stagger-3 ${isMobile ? 'order-1 mb-6' : ''}`}>
             <ServiceItem 
               icon={Banknote} 
               title="Invoice Financing" 

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface HandshakeProps {
   className?: string;
@@ -25,12 +26,14 @@ const Handshake: React.FC<HandshakeProps> = ({
       : 'h-48 sm:h-72 w-auto';
   
   return (
-    <div className={`${dimensions} ${className}`}>
-      <img 
-        src="/lovable-uploads/11b9f7ca-a2ed-4398-b495-836dc89faed2.png" 
-        alt="Business Handshake" 
-        className="h-full w-auto"
-      />
+    <div className={`${dimensions} ${className} overflow-hidden`}>
+      <AspectRatio ratio={1} className="w-full h-full">
+        <img 
+          src="/lovable-uploads/11b9f7ca-a2ed-4398-b495-836dc89faed2.png" 
+          alt="Business Handshake" 
+          className="w-full h-full object-cover"
+        />
+      </AspectRatio>
     </div>
   );
 };

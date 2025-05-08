@@ -3,6 +3,8 @@ import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
 import Handshake from '../Handshake';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface SlideProps {
   active: boolean;
@@ -11,6 +13,8 @@ interface SlideProps {
 }
 
 const Slide9: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
+  const isMobile = useIsMobile();
+  
   return (
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content">
@@ -54,8 +58,14 @@ const Slide9: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
           </div>
           
           <div className="md:w-1/2 flex justify-center items-center fade-in-up stagger-3">
-            <div className="rounded-full overflow-hidden bg-growthiq-deep-navy p-2 border-2 border-growthiq-primary-blue">
-              <Handshake size="medium" />
+            <div className="rounded-full overflow-hidden bg-growthiq-deep-navy p-0 border-2 border-growthiq-primary-blue w-full max-w-[300px] aspect-square">
+              <AspectRatio ratio={1} className="w-full h-full">
+                <img
+                  src="/lovable-uploads/11b9f7ca-a2ed-4398-b495-836dc89faed2.png"
+                  alt="Business Handshake"
+                  className="w-full h-full object-cover"
+                />
+              </AspectRatio>
             </div>
           </div>
         </div>

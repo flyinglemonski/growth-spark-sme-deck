@@ -3,6 +3,7 @@ import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
 import { Target, Layers, Timer, DollarSign } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideProps {
   active: boolean;
@@ -30,6 +31,8 @@ const Pillar: React.FC<PillarProps> = ({ icon: Icon, title, description, delay }
 );
 
 const Slide11: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
+  const isMobile = useIsMobile();
+  
   const pillars = [
     {
       icon: Target,
@@ -46,13 +49,13 @@ const Slide11: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
     {
       icon: Timer,
       title: 'Speed & Execution',
-      description: 'Quick deployment with measurable impact within the first month.',
+      description: 'Quick deployment with measurable impact within the first few months.',
       delay: 'stagger-3'
     },
     {
       icon: DollarSign,
       title: 'Transparent Pricing',
-      description: 'Clear, predictable fees with options for success-based billing.',
+      description: 'Clear, predictable with no hidden charges.',
       delay: 'stagger-4'
     }
   ];
