@@ -13,16 +13,20 @@ import Slide9 from './slides/Slide9';
 import Slide10 from './slides/Slide10';
 import Slide11 from './slides/Slide11';
 import Slide12 from './slides/Slide12';
+import Slide13 from './slides/Slide13';
+import Slide14 from './slides/Slide14';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const SlideContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const isMobile = useIsMobile();
   
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev > 0 ? prev - 1 : prev));
   };
   
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev < 11 ? prev + 1 : prev));
+    setCurrentSlide((prev) => (prev < 13 ? prev + 1 : prev));
   };
   
   const handleJumpTo = (index: number) => {
@@ -45,7 +49,7 @@ const SlideContainer: React.FC = () => {
 
   return (
     <div className="p-4 flex flex-col items-center">
-      <div className="slide-container">
+      <div className={`slide-container ${isMobile ? 'mobile-slide-container' : ''}`}>
         <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
         <Slide2 active={currentSlide === 1} index={1} currentIndex={currentSlide} />
         <Slide3 active={currentSlide === 2} index={2} currentIndex={currentSlide} />
@@ -57,12 +61,14 @@ const SlideContainer: React.FC = () => {
         <Slide9 active={currentSlide === 8} index={8} currentIndex={currentSlide} />
         <Slide10 active={currentSlide === 9} index={9} currentIndex={currentSlide} />
         <Slide11 active={currentSlide === 10} index={10} currentIndex={currentSlide} />
-        <Slide12 active={currentSlide === 11} index={11} currentIndex={currentSlide} />
+        <Slide13 active={currentSlide === 11} index={11} currentIndex={currentSlide} />
+        <Slide14 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
+        <Slide12 active={currentSlide === 13} index={13} currentIndex={currentSlide} />
       </div>
       
       <SlideNavigation 
         currentSlide={currentSlide}
-        totalSlides={12}
+        totalSlides={14}
         onPrev={handlePrev}
         onNext={handleNext}
         onJumpTo={handleJumpTo}

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideLayoutProps {
   children: React.ReactNode;
@@ -17,6 +18,8 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   index, 
   currentIndex 
 }) => {
+  const isMobile = useIsMobile();
+  
   // Determine slide position
   const position = active ? 'slide-active' : 
                   index > currentIndex ? 'slide-next' : 'slide-prev';
@@ -26,6 +29,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       className={cn(
         'slide', 
         position,
+        isMobile ? 'mobile-slide' : '',
         className
       )}
       style={{ 

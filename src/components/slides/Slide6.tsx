@@ -16,11 +16,11 @@ const Slide6: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
         <Logo className="self-start mb-8 fade-in-up" />
         
         <h2 className="text-4xl md:text-5xl font-semibold text-growthiq-primary-blue mb-4 fade-in-up stagger-1">
-          Marketing Automation
+          Marketing & Branding
         </h2>
         
         <h3 className="text-2xl md:text-3xl text-white mb-8 fade-in-up stagger-2">
-          Nurture leads & close deals on autopilot.
+          Build a brand that resonates & converts.
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6">
@@ -28,18 +28,18 @@ const Slide6: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-growthiq-electric-blue bg-opacity-20 p-3 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-growthiq-electric-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h4 className="text-xl text-growthiq-electric-blue">Email Marketing</h4>
+              <h4 className="text-xl text-growthiq-electric-blue">Web Design & Development</h4>
             </div>
             <p className="text-xl text-white mb-6">
-              Craft beautiful emails that convert.
+              Sites that convert visitors to customers.
             </p>
             <ul className="list-disc pl-5 text-white">
-              <li>Personalised campaigns</li>
-              <li>Segmentation & triggers</li>
-              <li>A/B testing</li>
+              <li>User-centric design</li>
+              <li>Conversion optimisation</li>
+              <li>Mobile-first approach</li>
             </ul>
           </div>
           
@@ -47,18 +47,18 @@ const Slide6: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-growthiq-electric-blue bg-opacity-20 p-3 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-growthiq-electric-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                 </svg>
               </div>
-              <h4 className="text-xl text-growthiq-electric-blue">Social Media Marketing</h4>
+              <h4 className="text-xl text-growthiq-electric-blue">Full Branding Services</h4>
             </div>
             <p className="text-xl text-white mb-6">
-              Engage your audience on social.
+              Create a cohesive brand identity.
             </p>
             <ul className="list-disc pl-5 text-white">
-              <li>Content scheduling</li>
-              <li>Audience insights</li>
-              <li>Ad management</li>
+              <li>Visual identity & guidelines</li>
+              <li>Brand storytelling</li>
+              <li>Consistency across channels</li>
             </ul>
           </div>
         </div>

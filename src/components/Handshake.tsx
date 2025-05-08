@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface HandshakeProps {
   className?: string;
@@ -10,11 +11,18 @@ const Handshake: React.FC<HandshakeProps> = ({
   className = '', 
   size = 'medium' 
 }) => {
-  const dimensions = size === 'small' 
-    ? 'h-24 w-auto' 
-    : size === 'medium'
-      ? 'h-48 w-auto'
-      : 'h-72 w-auto';
+  const isMobile = useIsMobile();
+  
+  // Adjust size based on mobile view
+  const actualSize = isMobile ? 
+    (size === 'large' ? 'medium' : size === 'medium' ? 'small' : 'small') : 
+    size;
+    
+  const dimensions = actualSize === 'small' 
+    ? 'h-16 sm:h-24 w-auto' 
+    : actualSize === 'medium'
+      ? 'h-32 sm:h-48 w-auto'
+      : 'h-48 sm:h-72 w-auto';
   
   return (
     <div className={`${dimensions} ${className}`}>
