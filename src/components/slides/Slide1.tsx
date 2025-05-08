@@ -2,7 +2,6 @@
 import React from 'react';
 import SlideLayout from '../SlideLayout';
 import Logo from '../Logo';
-import LightningBolt from '../LightningBolt';
 
 interface SlideProps {
   active: boolean;
@@ -17,7 +16,7 @@ const Slide1: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
         <Logo className="self-start mb-8 fade-in-up" />
         
         <div className="flex-1 flex flex-col items-center justify-center text-center">
-          <LightningBolt size="large" className="mb-8 fade-in-up stagger-1" />
+          {/* Lightning bolt removed */}
           
           <h1 className="text-5xl md:text-6xl font-semibold text-white mb-4 fade-in-up stagger-2">
             Smarter SME <span className="highlight-box">GROWTH</span> — All In One Place
