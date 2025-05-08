@@ -57,7 +57,7 @@ const Slide8: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 gap-4 fade-in-up stagger-3 self-start">
+          <div className="grid grid-cols-1 gap-4 fade-in-up stagger-3 self-start mt-[-30px]">
             <div className="bg-opacity-10 bg-white p-5 rounded-lg">
               <h4 className="text-growthiq-primary-blue font-medium mb-2">CRM Implementation</h4>
               <p className="text-white text-sm">Custom Hubspot, Salesforce & Zoho setups</p>
