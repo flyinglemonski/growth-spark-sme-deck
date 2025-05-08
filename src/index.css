@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -129,8 +130,8 @@
   .mobile-slide-container {
     aspect-ratio: auto;
     max-width: 550px;
-    height: calc(100vh - 120px);
-    min-height: 550px;
+    height: calc(100vh - 160px); /* Reduced height to make room for navigation */
+    min-height: 500px;
     overflow: visible;
   }
   
@@ -202,7 +203,7 @@
       font-size: 0.9em;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      max-height: calc(100vh - 150px);
+      max-height: calc(100vh - 180px); /* Adjusted to account for navigation */
     }
     
     h2 {

@@ -55,8 +55,9 @@ const SlideContainer: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // For mobile, we'll use ScrollArea but ensure the navigation is visible
   const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
-  const wrapperProps = isMobile ? { className: "w-full h-full" } : {};
+  const wrapperProps = isMobile ? { className: "w-full h-full flex-1" } : {};
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -79,13 +80,15 @@ const SlideContainer: React.FC = () => {
         </div>
       </SlideWrapper>
       
-      <SlideNavigation 
-        currentSlide={currentSlide}
-        totalSlides={13} // Reduced by 1 since we removed a slide
-        onPrev={handlePrev}
-        onNext={handleNext}
-        onJumpTo={handleJumpTo}
-      />
+      <div className="w-full pb-4 px-2 mt-auto">
+        <SlideNavigation 
+          currentSlide={currentSlide}
+          totalSlides={13} // Reduced by 1 since we removed a slide
+          onPrev={handlePrev}
+          onNext={handleNext}
+          onJumpTo={handleJumpTo}
+        />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideNavigationProps {
   currentSlide: number;
@@ -18,42 +19,55 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
   onNext,
   onJumpTo
 }) => {
+  const isMobile = useIsMobile();
+  
   return (
-    <div className="flex items-center justify-between w-full max-w-xl mx-auto mt-6 px-4">
+    <div className="flex items-center justify-between w-full max-w-xl mx-auto">
       <Button 
         variant="outline" 
-        size="icon" 
+        size={isMobile ? "default" : "icon"}
         onClick={onPrev}
         disabled={currentSlide === 0}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-opacity-80 backdrop-blur-sm"
       >
-        <ChevronLeft className="h-4 w-4" />
+        <ChevronLeft className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
+        {isMobile && <span className="ml-1">Prev</span>}
       </Button>
       
-      <div className="flex items-center space-x-2">
-        {Array.from({ length: totalSlides }).map((_, i) => (
-          <Button 
-            key={i}
-            variant="outline"
-            size="icon"
-            className={`h-2 w-2 rounded-full p-0 ${
-              i === currentSlide 
-                ? 'bg-growthiq-primary-blue border-growthiq-primary-blue' 
-                : 'bg-transparent border-growthiq-primary-blue'
-            }`}
-            onClick={() => onJumpTo(i)}
-          />
-        ))}
-      </div>
+      {!isMobile && (
+        <div className="flex items-center space-x-2 overflow-x-auto py-2 px-1">
+          {Array.from({ length: totalSlides }).map((_, i) => (
+            <Button 
+              key={i}
+              variant="outline"
+              size="icon"
+              className={`h-2 w-2 rounded-full p-0 ${
+                i === currentSlide 
+                  ? 'bg-growthiq-primary-blue border-growthiq-primary-blue' 
+                  : 'bg-transparent border-growthiq-primary-blue'
+              }`}
+              onClick={() => onJumpTo(i)}
+            />
+          ))}
+        </div>
+      )}
+      
+      {/* On mobile, show current slide number instead of dots */}
+      {isMobile && (
+        <div className="text-center text-white font-semibold bg-black bg-opacity-40 px-3 py-1 rounded-full">
+          {currentSlide + 1} / {totalSlides}
+        </div>
+      )}
       
       <Button 
         variant="outline" 
-        size="icon"
+        size={isMobile ? "default" : "icon"}
         onClick={onNext}
         disabled={currentSlide === totalSlides - 1}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-opacity-80 backdrop-blur-sm"
       >
-        <ChevronRight className="h-4 w-4" />
+        {isMobile && <span className="mr-1">Next</span>}
+        <ChevronRight className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
       </Button>
     </div>
   );
