@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
@@ -77,12 +76,11 @@ const SlideContainer: React.FC = () => {
   const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
   const wrapperProps = isMobile ? { 
     className: "w-full h-full flex-1",
-    // Completely disable all scrolling behavior
+    // Disable scrolling but keep pointer events on buttons functional
     style: { 
       overflowY: 'hidden', 
       overflowX: 'hidden',
-      touchAction: 'none',
-      pointerEvents: 'none' // Only allow interactions with navigation buttons
+      touchAction: 'none'
     }
   } : {};
 
@@ -91,7 +89,7 @@ const SlideContainer: React.FC = () => {
       className="flex flex-col h-full w-full relative"
       style={isMobile ? { touchAction: 'none' } : {}}
     >
-      {/* Navigation positioned at top right with higher z-index to remain interactive */}
+      {/* Navigation positioned at top right with higher z-index to ensure it remains interactive */}
       <div className="absolute top-4 right-4 z-50" style={{ pointerEvents: 'auto' }}>
         <SlideNavigation 
           currentSlide={currentSlide}

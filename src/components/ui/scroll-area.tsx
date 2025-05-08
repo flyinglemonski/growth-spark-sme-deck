@@ -17,7 +17,7 @@ const ScrollArea = React.forwardRef<
       <div
         ref={ref as React.RefObject<HTMLDivElement>}
         className={cn("relative overflow-hidden", className)}
-        style={{ touchAction: 'none', pointerEvents: 'none' }}
+        style={{ touchAction: 'none' }}
         {...props}
       >
         <div className="h-full w-full" style={{ overflow: 'hidden', touchAction: 'none' }}>
