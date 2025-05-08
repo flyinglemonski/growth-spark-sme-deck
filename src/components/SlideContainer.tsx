@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
 import Slide2 from './slides/Slide2';
@@ -56,21 +56,43 @@ const SlideContainer: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // For mobile, we'll use ScrollArea but ensure the navigation is visible
+  // Prevent all default touch events for mobile devices
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const preventDefaultTouch = (e: TouchEvent) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener('touchmove', preventDefaultTouch, { passive: false });
+    document.addEventListener('touchstart', preventDefaultTouch, { passive: false });
+    
+    return () => {
+      document.removeEventListener('touchmove', preventDefaultTouch);
+      document.removeEventListener('touchstart', preventDefaultTouch);
+    };
+  }, [isMobile]);
+
+  // For mobile, modified ScrollArea usage
   const SlideWrapper = isMobile ? ScrollArea : React.Fragment;
   const wrapperProps = isMobile ? { 
     className: "w-full h-full flex-1",
-    // Disable normal scrolling behavior for touch devices
-    style: { overflowY: 'hidden', touchAction: 'none' }
+    // Completely disable all scrolling behavior
+    style: { 
+      overflowY: 'hidden', 
+      overflowX: 'hidden',
+      touchAction: 'none',
+      pointerEvents: 'none' // Only allow interactions with navigation buttons
+    }
   } : {};
 
   return (
     <div 
       className="flex flex-col h-full w-full relative"
-      // Remove all touch event handlers to disable swipe navigation
+      style={isMobile ? { touchAction: 'none' } : {}}
     >
-      {/* Navigation positioned at top right */}
-      <div className="absolute top-4 right-4 z-50">
+      {/* Navigation positioned at top right with higher z-index to remain interactive */}
+      <div className="absolute top-4 right-4 z-50" style={{ pointerEvents: 'auto' }}>
         <SlideNavigation 
           currentSlide={currentSlide}
           totalSlides={totalSlides}

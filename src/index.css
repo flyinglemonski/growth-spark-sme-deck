@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @tailwind base;
@@ -94,6 +93,10 @@
   
   * {
     @apply border-border;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html, body, #root {
@@ -102,12 +105,15 @@
     padding: 0;
     overflow: hidden;
     touch-action: none; /* Disable all touch actions at the root level */
+    overscroll-behavior: none; /* Prevent bounce effects */
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    position: fixed; /* Prevent any scrolling on mobile */
+    width: 100%;
   }
   
   .slide-container {
@@ -136,6 +142,7 @@
     min-height: 500px;
     overflow: hidden; /* Changed from visible to hidden */
     touch-action: none; /* Disable touch actions */
+    pointer-events: none; /* Disable pointer events except for navigation */
   }
   
   /* Fixed slide positioning - content stays visible until user progresses */
@@ -197,6 +204,7 @@
     color: #FFFFFF;
     z-index: 20;
     overflow-y: hidden; /* Changed from auto to hidden */
+    pointer-events: none; /* Disable all pointer events */
   }
 
   /* Mobile adjustments */
@@ -209,6 +217,7 @@
       -webkit-overflow-scrolling: none; /* Changed from touch to none */
       max-height: calc(100vh - 60px); /* Adjusted for top nav */
       touch-action: none; /* Disable touch actions */
+      pointer-events: none; /* Block all pointer events except nav */
     }
     
     h2 {
