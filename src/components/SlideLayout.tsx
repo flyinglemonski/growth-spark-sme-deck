@@ -24,17 +24,18 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   return (
     <div 
       className={cn(
-        'slide navy-bg', 
+        'slide', 
         position,
         className
       )}
-      // Only render slides that are currently active or immediate neighbors
+      // Only render active slide and adjacent slides, but ensure content stays visible
       style={{ 
         display: Math.abs(index - currentIndex) <= 1 ? 'block' : 'none',
-        opacity: active ? 1 : 0
+        opacity: active ? 1 : 0,
+        visibility: active ? 'visible' : 'hidden'
       }}
     >
-      <div className="slide-content-wrapper">
+      <div className="slide-content-wrapper navy-bg">
         {children}
       </div>
     </div>
