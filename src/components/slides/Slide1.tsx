@@ -14,9 +14,9 @@ const Slide1: React.FC<SlideProps> = ({ active, index, currentIndex }) => {
     <SlideLayout active={active} index={index} currentIndex={currentIndex}>
       <div className="slide-content flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center text-center">
-          {/* Logo moved to center above text and made larger */}
+          {/* Logo moved to center above text and made much larger */}
           <div className="mb-12">
-            <Logo className="h-24 w-auto fade-in-up" />
+            <Logo extraLarge className="fade-in-up" />
           </div>
           
           <h1 className="text-5xl md:text-6xl font-semibold text-white mb-4 fade-in-up stagger-2">

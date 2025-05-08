@@ -3,11 +3,12 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
+  extraLarge?: boolean;
 }
 
-const Logo: React.FC<LogoProps> = ({ className = '' }) => {
-  // Base dimensions are maintained here, but can be overridden via className
-  const dimensions = 'h-16 w-auto';
+const Logo: React.FC<LogoProps> = ({ className = '', extraLarge = false }) => {
+  // Base dimensions are maintained here, but can be overridden via className or extraLarge prop
+  const dimensions = extraLarge ? 'h-80 w-auto' : 'h-16 w-auto';
   
   return (
     <div className={`${dimensions} ${className}`}>
