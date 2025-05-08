@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import SlideNavigation from './SlideNavigation';
 import Slide1 from './slides/Slide1';
@@ -92,11 +91,22 @@ const SlideContainer: React.FC = () => {
 
   return (
     <div 
-      className="flex flex-col h-full w-full"
+      className="flex flex-col h-full w-full relative"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Navigation positioned at top right */}
+      <div className="absolute top-4 right-4 z-50">
+        <SlideNavigation 
+          currentSlide={currentSlide}
+          totalSlides={totalSlides}
+          onPrev={handlePrev}
+          onNext={handleNext}
+          onJumpTo={handleJumpTo}
+        />
+      </div>
+      
       <SlideWrapper {...wrapperProps}>
         <div className={`slide-container ${isMobile ? 'mobile-slide-container' : 'fullscreen-slide-container'}`}>
           <Slide1 active={currentSlide === 0} index={0} currentIndex={currentSlide} />
@@ -115,16 +125,6 @@ const SlideContainer: React.FC = () => {
           <Slide12 active={currentSlide === 12} index={12} currentIndex={currentSlide} />
         </div>
       </SlideWrapper>
-      
-      <div className="w-full pb-4 px-2 mt-auto fixed bottom-0 left-0 right-0 z-50">
-        <SlideNavigation 
-          currentSlide={currentSlide}
-          totalSlides={totalSlides}
-          onPrev={handlePrev}
-          onNext={handleNext}
-          onJumpTo={handleJumpTo}
-        />
-      </div>
     </div>
   );
 };

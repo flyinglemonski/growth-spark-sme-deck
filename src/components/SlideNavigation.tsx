@@ -22,52 +22,37 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
   const isMobile = useIsMobile();
   
   return (
-    <div className="flex items-center justify-between w-full max-w-xl mx-auto bg-black bg-opacity-40 backdrop-blur-sm rounded-full p-2">
+    <div className="flex items-center gap-2 bg-black bg-opacity-40 backdrop-blur-sm rounded-full p-1">
       <Button 
         variant="outline" 
-        size={isMobile ? "default" : "icon"}
+        size="icon"
         onClick={onPrev}
         disabled={currentSlide === 0}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100 h-8 w-8"
       >
-        <ChevronLeft className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
-        {isMobile && <span className="ml-1 text-growthiq-primary-blue">Prev</span>}
+        <ChevronLeft className="h-4 w-4" />
       </Button>
       
       {!isMobile && (
-        <div className="flex items-center space-x-2 overflow-x-auto py-2 px-1">
-          {Array.from({ length: totalSlides }).map((_, i) => (
-            <Button 
-              key={i}
-              variant="outline"
-              size="icon"
-              className={`h-2 w-2 rounded-full p-0 ${
-                i === currentSlide 
-                  ? 'bg-growthiq-primary-blue border-growthiq-primary-blue' 
-                  : 'bg-transparent border-growthiq-primary-blue'
-              }`}
-              onClick={() => onJumpTo(i)}
-            />
-          ))}
-        </div>
-      )}
-      
-      {/* On mobile, show current slide number with improved visibility */}
-      {isMobile && (
-        <div className="text-center text-white font-semibold px-4 py-1 rounded-full">
+        <div className="text-white font-medium text-sm px-2">
           {currentSlide + 1} / {totalSlides}
         </div>
       )}
       
+      {isMobile && (
+        <div className="text-white font-medium text-xs px-1">
+          {currentSlide + 1}/{totalSlides}
+        </div>
+      )}
+      
       <Button 
         variant="outline" 
-        size={isMobile ? "default" : "icon"}
+        size="icon"
         onClick={onNext}
         disabled={currentSlide === totalSlides - 1}
-        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100"
+        className="border-growthiq-primary-blue text-growthiq-primary-blue bg-white bg-opacity-80 backdrop-blur-sm hover:bg-white hover:bg-opacity-100 h-8 w-8"
       >
-        {isMobile && <span className="mr-1 text-growthiq-primary-blue">Next</span>}
-        <ChevronRight className={`${isMobile ? "h-5 w-5" : "h-4 w-4"}`} />
+        <ChevronRight className="h-4 w-4" />
       </Button>
     </div>
   );
